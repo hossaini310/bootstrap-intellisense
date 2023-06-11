@@ -27,10 +27,6 @@ Bootstrap Intellisense is a Visual Studio Code extension that offers CSS class a
 
 <img src="./images/img2.png"/>
 
-## Requirements
-
-This extension requires VSCode version 1.67.1 or higher.
-
 ## Known Issues
 
 If you encounter any errors or have suggestions for improvement, please feel free to contact me at Hossainih03@gmail.com. I appreciate your feedback and will do my best to address any issues you may have. Thank you in advance!
@@ -38,5 +34,9 @@ If you encounter any errors or have suggestions for improvement, please feel fre
 ## Contributing
 
 Contributions are welcome! If you would like to add new features or make improvements to the project, feel free to fork the repository and submit your changes via pull requests. Your contributions will be highly appreciated and will help make the project even better. Thank you in advance for your interest in contributing!
+
+## Requirements
+
+This extension requires VSCode version 1.67.1 or higher.
 
 Enjoy!

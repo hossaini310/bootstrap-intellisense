@@ -51,8 +51,11 @@ const getBsClasses = async () => {
       }
     }
 
-    const version = getBsVersion();
+    let version = getBsVersion();
+
     if (version !== 'latest') {
+      version = version.replace('bs v', '');
+
       url = url.replace('latest', version);
     }
 
