@@ -1,0 +1,86 @@
+{
+  "name": "bootstrap-intellisense",
+  "displayName": "Bootstrap IntelliSense",
+  "version": "1.0.0",
+  "description": "",
+  "categories": [
+    "Linters",
+    "Snippets"
+  ],
+  "publisher": "hossaini",
+  "keywords": [
+    "bootstrap",
+    "bootstrap5",
+    "css",
+    "intellisense",
+    "autocomplete",
+    "vscode"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hossaini310/bootstrap-intellisense"
+  },
+  "main": "./src/extension.js",
+  "icon": "images/icon/icon.png",
+  "scripts": {
+    "deploy": "vsce publish",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./src/test/runTest.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "bootstrap-intellisense.showOutput",
+        "title": "Bootstrap IntelliSense"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Bootstrap IntelliSense",
+      "properties": {
+        "bootstrapIntelliSense.version": {
+          "type": "string",
+          "default": "bs v5.3",
+          "description": "Bootstrap versions",
+          "enum": [
+            "bs v5.3",
+            "bs v5.2",
+            "bs v5.1",
+            "bs v5.0",
+            "bs v4.6",
+            "bs v4.5",
+            "bs v4.4",
+            "bs v4.3",
+            "bs v4.2",
+            "bs v4.1",
+            "bs v4.0"
+          ]
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "sponsor": {
+    "url": "https://github.com/sponsors/hossaini310"
+  },
+  "configurationDefaults": {
+    "bootstrapIntelliSense.version": "bs v5.3"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "node-fetch": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vscode/test-electron": "^2.2.2",
+    "eslint": "^8.33.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.1.0"
+  },
+  "engines": {
+    "vscode": "^1.67.1"
+  }
+}
