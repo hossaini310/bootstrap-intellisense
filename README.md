@@ -2,6 +2,8 @@
 
 Bootstrap IntelliSense is a Visual Studio Code extension that enhances the development experience with Bootstrap. It offers CSS class autocompletion, reducing errors and saving time for developers. This tool simplifies working with Bootstrap, making the development process more efficient and effective.
 
+This extension is inspired by the popular Tailwind CSS IntelliSense extension.
+
 ## Installation
 
 **[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=hossaini.bootstrap-intellisense)**

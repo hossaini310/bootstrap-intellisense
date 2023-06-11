@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-intellisense",
   "displayName": "Bootstrap IntelliSense",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "categories": [
     "Linters",
