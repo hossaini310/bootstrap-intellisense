@@ -23,7 +23,7 @@ const lenguageSupport = [
 
 function activate(context) {
   context.subscriptions.push(
-    vscode.commands.registerCommand('bootstrap-intellisense.showOutput', () => {
+    vscode.commands.registerCommand('bootstrap-intellisense.enable', () => {
       vscode.window.showInformationMessage('Activated Bootstrap IntelliSense');
     }),
   );
@@ -43,7 +43,8 @@ function activate(context) {
         const completionItems = [];
         for (const className of classes) {
           const completionItem = new vscode.CompletionItem();
-          completionItem.label = className;
+          completionItem.label = `${className} `;
+
           completionItem.kind = vscode.CompletionItemKind.Value;
           completionItem.detail = 'Bootstrap IntelliSense';
 
@@ -61,7 +62,7 @@ function activate(context) {
   setStatusBarItem(getBsVersion());
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('extension.selectBootstrapVersion', () => {
+    vscode.commands.registerCommand('bootstrap-intellisense.changeVersion', () => {
       selectBootstrapVersion();
     }),
   );
@@ -72,16 +73,17 @@ function deactivate() {
 }
 
 function selectBootstrapVersion() {
-  const versionList5 = ['bs v5.3', 'bs v5.2', 'bs v5.1', 'bs v5.0'];
+  const versionList5 = ['Bootstrap v5.3', 'Bootstrap v5.2', 'Bootstrap v5.1', 'Bootstrap v5.0'];
   const versionList4 = [
-    'bs v4.6',
-    'bs v4.5',
-    'bs v4.4',
-    'bs v4.3',
-    'bs v4.2',
-    'bs v4.1',
-    'bs v4.0',
+    'Bootstrap v4.6',
+    'Bootstrap v4.5',
+    'Bootstrap v4.4',
+    'Bootstrap v4.3',
+    'Bootstrap v4.2',
+    'Bootstrap v4.1',
+    'Bootstrap v4.0',
   ];
+
   const versionList = [...versionList5, ...versionList4];
 
   const currentVersion = getBsVersion();

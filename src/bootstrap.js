@@ -12,8 +12,9 @@ const setStatusBarItem = (version) => {
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
   }
 
-  statusBarItem.command = 'extension.selectBootstrapVersion';
-  statusBarItem.text = version;
+  statusBarItem.command = 'bootstrap-intellisense.changeVersion';
+  statusBarItem.text = `$(bootstrap-icon) ${version}`;
+  statusBarItem.tooltip = 'Click to select Bootstrap version';
 
   statusBarItem.show();
 };
@@ -40,11 +41,11 @@ const getBsClasses = async () => {
           ),
         );
         if (packageJson.config.version_short) {
-          setStatusBarItem(`bs v${packageJson.config.version_short}`);
-          setBsVersion(`bs v${packageJson.config.version_short}`);
+          setStatusBarItem(`Bootstrap v${packageJson.config.version_short}`);
+          setBsVersion(`Bootstrap v${packageJson.config.version_short}`);
         } else {
-          setBsVersion(`bs v${packageJson.version}`);
-          setStatusBarItem(`bs v${packageJson.config.version}`);
+          setBsVersion(`Bootstrap v${packageJson.version}`);
+          setStatusBarItem(`Bootstrap v${packageJson.config.version}`);
         }
         const css = fs.readFileSync(bootstrapPath, 'utf8');
         return extractCssClasses(css);
@@ -54,8 +55,7 @@ const getBsClasses = async () => {
     let version = getBsVersion();
 
     if (version !== 'latest') {
-      version = version.replace('bs v', '');
-
+      version = version.replace('Bootstrap v', '');
       url = url.replace('latest', version);
     }
 
@@ -82,7 +82,7 @@ const extractCssClasses = (css) => {
 
 const getBsVersion = () => {
   const config = vscode.workspace.getConfiguration('bootstrapIntelliSense');
-  return config.get('version') || 'bs v5.3';
+  return config.get('version') || 'Bootstrap v5.3';
 };
 
 const setBsVersion = (version) => {

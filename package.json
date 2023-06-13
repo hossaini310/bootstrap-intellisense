@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-intellisense",
   "displayName": "Bootstrap IntelliSense",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Bootstrap IntelliSense: Enhance Bootstrap development with CSS class autocompletion for efficient coding in Visual Studio Code.",
   "categories": [
     "Linters",
@@ -22,7 +22,7 @@
     "url": "https://github.com/hossaini310/bootstrap-intellisense"
   },
   "main": "./src/extension.js",
-  "icon": "images/icon/icon.png",
+  "icon": "assets/icons/icon.png",
   "scripts": {
     "deploy": "vsce publish",
     "lint": "eslint .",
@@ -32,30 +32,43 @@
   "contributes": {
     "commands": [
       {
-        "command": "bootstrap-intellisense.showOutput",
-        "title": "Bootstrap IntelliSense"
+        "command": "bootstrap-intellisense.enable",
+        "title": "Bootstrap IntelliSense: Enable"
+      },
+      {
+        "command": "bootstrap-intellisense.changeVersion",
+        "title": "Bootstrap IntelliSense: Change Version"
       }
     ],
+    "icons": {
+      "bootstrap-icon": {
+        "description": "Bootstrap Icon",
+        "default": {
+          "fontPath": "./assets/bootstrap-icon-font.woff",
+          "fontCharacter": "B"
+        }
+      }
+    },
     "configuration": {
       "type": "object",
       "title": "Bootstrap IntelliSense",
       "properties": {
         "bootstrapIntelliSense.version": {
           "type": "string",
-          "default": "bs v5.3",
+          "default": "Bootstrap v5.3",
           "description": "Bootstrap versions",
           "enum": [
-            "bs v5.3",
-            "bs v5.2",
-            "bs v5.1",
-            "bs v5.0",
-            "bs v4.6",
-            "bs v4.5",
-            "bs v4.4",
-            "bs v4.3",
-            "bs v4.2",
-            "bs v4.1",
-            "bs v4.0"
+            "Bootstrap v5.3",
+            "Bootstrap v5.2",
+            "Bootstrap v5.1",
+            "Bootstrap v5.0",
+            "Bootstrap v4.6",
+            "Bootstrap v4.5",
+            "Bootstrap v4.4",
+            "Bootstrap v4.3",
+            "Bootstrap v4.2",
+            "Bootstrap v4.1",
+            "Bootstrap v4.0"
           ]
         }
       }
@@ -68,7 +81,7 @@
     "url": "https://github.com/sponsors/hossaini310"
   },
   "configurationDefaults": {
-    "bootstrapIntelliSense.version": "bs v5.3"
+    "bootstrapIntelliSense.version": "Bootstrap v5.3"
   },
   "dependencies": {
     "axios": "^1.4.0",
