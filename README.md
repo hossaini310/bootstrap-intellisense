@@ -12,7 +12,7 @@ In order for the extension to activate you must have Bootstrap installed in your
 
 ## Activation
 
-The extension will be activated automatically when it's installed. If it's not activated, you can manually activate it using the command `Bootstrap IntelliSense` with `ctrl + shift + p`.
+The extension will be activated automatically when it's installed. If it's not activated, you can manually activate it using the command `Bootstrap IntelliSense: Enable` with `ctrl + shift + p`.
 
 ## Features
 
@@ -21,11 +21,11 @@ The extension will be activated automatically when it's installed. If it's not a
 Bootstrap Intellisense is a Visual Studio Code extension that offers CSS class autocomplete for Bootstrap, supporting both Bootstrap 4 and Bootstrap 5 versions.
 
 <!-- add img -->
-<img src="./images/img1.png"/>
+<img src="/assets/images/img1.png"/>
 
 #### suported versions:
 
-<img src="./images/img2.png"/>
+<img src="./assets/images/img2.png"/>
 
 ## Known Issues
 

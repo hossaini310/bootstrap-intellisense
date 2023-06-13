@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.1 2023-06-13
+
+- 🐛 Bug fixes
+
 ## v1.1.0 2023-06-13
 
 - 🆕 Added icon to the Status Bar
