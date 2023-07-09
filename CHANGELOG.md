@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.2 2023-07-09
+
+- 🆕 Added 'twig' in the `lenguageSupport`
+
 ## v1.1.1 2023-06-13
 
 - 🐛 Bug fixes
