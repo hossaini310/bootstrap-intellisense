@@ -19,6 +19,7 @@ const lenguageSupport = [
   'vue-html',
   'svelte',
   'astro',
+  'twig'
 ];
 
 function activate(context) {
