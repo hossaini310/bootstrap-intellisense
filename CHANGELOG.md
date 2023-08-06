@@ -1,8 +1,12 @@
 # Change Log
 
+## v1.1.3 2023-08-06
+
+- 🆕 Added 'erb' in the `languageSupport`
+
 ## v1.1.2 2023-07-09
 
-- 🆕 Added 'twig' in the `lenguageSupport`
+- 🆕 Added 'twig' in the `languageSupport`
 
 ## v1.1.1 2023-06-13
 

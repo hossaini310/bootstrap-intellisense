@@ -1,13 +1,12 @@
 {
   "name": "bootstrap-intellisense",
   "displayName": "Bootstrap IntelliSense",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Bootstrap IntelliSense: Enhance Bootstrap development with CSS class autocompletion for efficient coding in Visual Studio Code.",
   "categories": [
     "Linters",
     "Snippets"
   ],
-  "publisher": "hossaini",
   "keywords": [
     "bootstrap",
     "bootstrap5",
@@ -16,13 +15,13 @@
     "autocomplete",
     "vscode"
   ],
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/hossaini310/bootstrap-intellisense"
   },
+  "license": "MIT",
+  "publisher": "hossaini",
   "main": "./src/extension.js",
-  "icon": "assets/icons/icon.png",
   "scripts": {
     "deploy": "vsce publish",
     "lint": "eslint .",
@@ -40,15 +39,6 @@
         "title": "Bootstrap IntelliSense: Change Version"
       }
     ],
-    "icons": {
-      "bootstrap-icon": {
-        "description": "Bootstrap Icon",
-        "default": {
-          "fontPath": "./assets/bootstrap-icon-font.woff",
-          "fontCharacter": "B"
-        }
-      }
-    },
     "configuration": {
       "type": "object",
       "title": "Bootstrap IntelliSense",
@@ -72,17 +62,20 @@
           ]
         }
       }
+    },
+    "icons": {
+      "bootstrap-icon": {
+        "description": "Bootstrap Icon",
+        "default": {
+          "fontPath": "./assets/bootstrap-icon-font.woff",
+          "fontCharacter": "B"
+        }
+      }
     }
   },
   "activationEvents": [
     "onStartupFinished"
   ],
-  "sponsor": {
-    "url": "https://github.com/sponsors/hossaini310"
-  },
-  "configurationDefaults": {
-    "bootstrapIntelliSense.version": "Bootstrap v5.3"
-  },
   "dependencies": {
     "axios": "^1.4.0",
     "node-fetch": "^2.6.11"
@@ -95,5 +88,12 @@
   },
   "engines": {
     "vscode": "^1.67.1"
+  },
+  "icon": "assets/icons/icon.png",
+  "configurationDefaults": {
+    "bootstrapIntelliSense.version": "Bootstrap v5.3"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/hossaini310"
   }
 }

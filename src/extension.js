@@ -7,7 +7,7 @@ const {
   setStatusBarItem,
 } = require('./bootstrap');
 
-const lenguageSupport = [
+const languageSupport = [
   'html',
   'php',
   'handlebars',
@@ -19,7 +19,8 @@ const lenguageSupport = [
   'vue-html',
   'svelte',
   'astro',
-  'twig'
+  'twig',
+  'erb',
 ];
 
 function activate(context) {
@@ -30,7 +31,7 @@ function activate(context) {
   );
 
   const disposable = vscode.languages.registerCompletionItemProvider(
-    lenguageSupport,
+    languageSupport,
     {
       async provideCompletionItems(document, position) {
         const lineText = document.lineAt(position).text;
