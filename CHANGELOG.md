@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.4 2023-08-11
+
+- 🐛 Bug fixes
+
 ## v1.1.3 2023-08-06
 
 - 🆕 Added 'erb' in the `languageSupport`
