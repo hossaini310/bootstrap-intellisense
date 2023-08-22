@@ -21,6 +21,7 @@ const languageSupport = [
   'astro',
   'twig',
   'erb',
+  'django-html',
 ];
 
 function activate(context) {

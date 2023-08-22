@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.5 2023-08-22
+
+- 🆕 Added 'django-html' in the `languageSupport`
+
 ## v1.1.4 2023-08-11
 
 - 🐛 Bug fixes
