@@ -1,8 +1,12 @@
 # Change Log
 
+## v1.1.6 2023-08-24
+
+- 🆕 Added `blade`, `razor`, `ejs`, `markdown`, `css`, `scss`, `sass`, `less`,`stylus`, `jade`, `pug`, `haml`, `slim` and `liquid` in the `languageSupport`
+
 ## v1.1.5 2023-08-22
 
-- 🆕 Added 'django-html' in the `languageSupport`
+- 🆕 Added `django-html` in the `languageSupport`
 
 ## v1.1.4 2023-08-11
 
@@ -10,11 +14,11 @@
 
 ## v1.1.3 2023-08-06
 
-- 🆕 Added 'erb' in the `languageSupport`
+- 🆕 Added `erb` in the `languageSupport`
 
 ## v1.1.2 2023-07-09
 
-- 🆕 Added 'twig' in the `languageSupport`
+- 🆕 Added `twig` in the `languageSupport`
 
 ## v1.1.1 2023-06-13
 

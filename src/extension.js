@@ -22,6 +22,20 @@ const languageSupport = [
   'twig',
   'erb',
   'django-html',
+  'blade',
+  'razor',
+  'ejs',
+  'markdown',
+  'css',
+  'scss',
+  'sass',
+  'less',
+  'stylus',
+  'jade',
+  'pug',
+  'haml',
+  'slim',
+  'liquid',
 ];
 
 function activate(context) {
