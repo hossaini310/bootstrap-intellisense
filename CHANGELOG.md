@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.7 2023-09-18
+
+- 🆕 Added `edge ` in the `languageSupport`
+
 ## v1.1.6 2023-08-24
 
 - 🆕 Added `blade`, `razor`, `ejs`, `markdown`, `css`, `scss`, `sass`, `less`,`stylus`, `jade`, `pug`, `haml`, `slim` and `liquid` in the `languageSupport`

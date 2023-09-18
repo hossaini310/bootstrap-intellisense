@@ -36,6 +36,7 @@ const languageSupport = [
   'haml',
   'slim',
   'liquid',
+  'edge',
 ];
 
 function activate(context) {
