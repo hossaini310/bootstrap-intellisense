@@ -37,6 +37,8 @@ const languageSupport = [
   'slim',
   'liquid',
   'edge',
+  'jinja',
+  'j2',
 ];
 
 function activate(context) {

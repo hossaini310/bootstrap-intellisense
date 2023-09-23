@@ -1,8 +1,12 @@
 # Change Log
 
+## v1.1.8 2023-09-23
+
+- 🆕 Added `j2` and `jinja` in the `languageSupport`
+
 ## v1.1.7 2023-09-18
 
-- 🆕 Added `edge ` in the `languageSupport`
+- 🆕 Added `edge` in the `languageSupport`
 
 ## v1.1.6 2023-08-24
 
