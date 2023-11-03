@@ -39,6 +39,7 @@ const languageSupport = [
   'edge',
   'jinja',
   'j2',
+  'asp',
 ];
 
 function activate(context) {

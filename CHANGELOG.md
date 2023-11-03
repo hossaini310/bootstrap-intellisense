@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.9 2023-11-03
+
+- 🆕 Added `asp`in the `languageSupport`
+
 ## v1.1.8 2023-09-23
 
 - 🆕 Added `j2` and `jinja` in the `languageSupport`
