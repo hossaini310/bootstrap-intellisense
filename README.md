@@ -1,4 +1,6 @@
 ## Bootstrap IntelliSense
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhossaini310%2Fbootstrap-intellisense.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhossaini310%2Fbootstrap-intellisense?ref=badge_shield)
+
 
 Bootstrap IntelliSense is a Visual Studio Code extension that enhances the development experience with Bootstrap. It offers CSS class autocompletion, reducing errors and saving time for developers. This tool simplifies working with Bootstrap, making the development process more efficient and effective.
 
@@ -40,3 +42,7 @@ Contributions are welcome! If you would like to add new features or make improve
 This extension requires VSCode version 1.67.1 or higher.
 
 Enjoy!
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhossaini310%2Fbootstrap-intellisense.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhossaini310%2Fbootstrap-intellisense?ref=badge_large)
