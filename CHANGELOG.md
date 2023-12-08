@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.10 2023-12-08
+
+- 🚧 This project is no longer actively maintained by the original developer.
+
 ## v1.1.9 2023-11-03
 
 - 🆕 Added `asp`in the `languageSupport`

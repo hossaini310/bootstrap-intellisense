@@ -1,4 +1,10 @@
-## Bootstrap IntelliSense
+# Bootstrap IntelliSense (No Longer Maintained)
+
+## Note: This project is no longer actively maintained by the original developer.
+
+If you would like to add new features or make improvements to the project, feel free to fork the repository and submit your changes via pull requests. Your contributions will be highly appreciated and will help make the project even better. Thank you in advance for your interest in contributing!
+
+---
 
 Bootstrap IntelliSense is a Visual Studio Code extension that enhances the development experience with Bootstrap. It offers CSS class autocompletion, reducing errors and saving time for developers. This tool simplifies working with Bootstrap, making the development process more efficient and effective.
 
@@ -18,7 +24,7 @@ The extension will be activated automatically when it's installed. If it's not a
 
 ### CSS Class Autocomplete
 
-Bootstrap Intellisense is a Visual Studio Code extension that offers CSS class autocomplete for Bootstrap, supporting both Bootstrap 4 and Bootstrap 5 versions.
+Bootstrap Intellisense is a Visual Studio Code extension that offers CSS class autocomplete for Bootstrap. Enter a class name and the extension will suggest matching CSS classes, if not than try `ctrl + space` to trigger the autocomplete.
 
 <!-- add img -->
 <img src="/assets/images/img1.png"/>
