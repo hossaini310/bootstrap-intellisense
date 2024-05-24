@@ -1,5 +1,13 @@
 # Change Log
 
+## v1.2.0 2024-05-24
+
+- 🔄 Improved retrieval of Bootstrap CSS classes from the project's node_modules.
+- 🛠️ The extension now consistently uses the installed version of Bootstrap, eliminating the ability to switch versions.
+- 🖌️ CSS classes are now accurately suggested within the class attribute.
+- 🐛 Minor bug fixes.
+- 🚀 Development on the project resumes, albeit at a slow pace.
+
 ## v1.1.10 2023-12-08
 
 - 🚧 This project is no longer actively maintained by the original developer.

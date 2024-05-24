@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-intellisense",
   "displayName": "Bootstrap IntelliSense",
-  "version": "1.1.10",
+  "version": "1.2.0",
   "description": "Bootstrap IntelliSense: Enhance Bootstrap development with CSS class autocompletion for efficient coding in Visual Studio Code.",
   "categories": [
     "Linters",
@@ -29,40 +29,6 @@
     "test": "node ./src/test/runTest.js"
   },
   "contributes": {
-    "commands": [
-      {
-        "command": "bootstrap-intellisense.enable",
-        "title": "Bootstrap IntelliSense: Enable"
-      },
-      {
-        "command": "bootstrap-intellisense.changeVersion",
-        "title": "Bootstrap IntelliSense: Change Version"
-      }
-    ],
-    "configuration": {
-      "type": "object",
-      "title": "Bootstrap IntelliSense",
-      "properties": {
-        "bootstrapIntelliSense.version": {
-          "type": "string",
-          "default": "Bootstrap v5.3",
-          "description": "Bootstrap versions",
-          "enum": [
-            "Bootstrap v5.3",
-            "Bootstrap v5.2",
-            "Bootstrap v5.1",
-            "Bootstrap v5.0",
-            "Bootstrap v4.6",
-            "Bootstrap v4.5",
-            "Bootstrap v4.4",
-            "Bootstrap v4.3",
-            "Bootstrap v4.2",
-            "Bootstrap v4.1",
-            "Bootstrap v4.0"
-          ]
-        }
-      }
-    },
     "icons": {
       "bootstrap-icon": {
         "description": "Bootstrap Icon",
@@ -83,7 +49,6 @@
   "devDependencies": {
     "@vscode/test-electron": "^2.2.2",
     "eslint": "^8.33.0",
-    "glob": "^8.1.0",
     "mocha": "^10.1.0"
   },
   "engines": {

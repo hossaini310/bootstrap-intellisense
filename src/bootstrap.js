@@ -1,73 +1,29 @@
-const os = require('os');
 const fs = require('fs');
 const path = require('path');
-const fetch = require('node-fetch');
 const vscode = require('vscode');
 
-let url = 'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.css';
 let statusBarItem = null;
+let cachedClasses = null;
+let cachedFileMtime = null;
 
-const setStatusBarItem = (version) => {
+const setStatusBarItem = async () => {
+  const packageJsonPath = await vscode.workspace.findFiles(
+    '**/node_modules/bootstrap/package.json',
+  );
+  const packageJson = await JSON.parse(
+    fs.readFileSync(path.join(packageJsonPath[0].fsPath), 'utf8'),
+  );
+
   if (statusBarItem === null) {
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
   }
 
-  statusBarItem.command = 'bootstrap-intellisense.changeVersion';
-  statusBarItem.text = `$(bootstrap-icon) ${version}`;
-  statusBarItem.tooltip = 'Click to select Bootstrap version';
-
+  statusBarItem.text = `$(bootstrap-icon) Bootstrap v${packageJson.version
+    .split('.')
+    .slice(0, 2)
+    .join('.')}`;
+  statusBarItem.tooltip = 'Your current Bootstrap version in this project';
   statusBarItem.show();
-};
-
-const getBsClasses = async () => {
-  const classesCache = getCacheClasses();
-
-  if (classesCache.length === 0) {
-    const rootPath = vscode.workspace.workspaceFolders;
-    if (rootPath !== undefined) {
-      const bootstrapPath = path.join(
-        rootPath[0].uri.fsPath,
-        'node_modules',
-        'bootstrap',
-        'dist',
-        'css',
-        'bootstrap.css',
-      );
-      if (fs.existsSync(bootstrapPath)) {
-        const packageJson = JSON.parse(
-          fs.readFileSync(
-            path.join(rootPath[0].uri.fsPath, 'node_modules', 'bootstrap', 'package.json'),
-            'utf8',
-          ),
-        );
-        if (packageJson.config.version_short) {
-          setStatusBarItem(`Bootstrap v${packageJson.config.version_short}`);
-          setBsVersion(`Bootstrap v${packageJson.config.version_short}`);
-        } else {
-          setBsVersion(`Bootstrap v${packageJson.version}`);
-          setStatusBarItem(`Bootstrap v${packageJson.config.version}`);
-        }
-        const css = fs.readFileSync(bootstrapPath, 'utf8');
-        return extractCssClasses(css);
-      }
-    }
-
-    let version = getBsVersion();
-
-    if (version !== 'latest') {
-      version = version.replace('Bootstrap v', '');
-      url = url.replace('latest', version);
-    }
-
-    const response = await fetch(url);
-    const responseText = await response.text();
-    const classes = extractCssClasses(responseText);
-
-    saveCacheClasses(classes);
-
-    return classes;
-  }
-  return classesCache;
 };
 
 const extractCssClasses = (css) => {
@@ -80,70 +36,44 @@ const extractCssClasses = (css) => {
   return Array.from(classes);
 };
 
-const getBsVersion = () => {
-  const config = vscode.workspace.getConfiguration('bootstrapIntelliSense');
-  return config.get('version') || 'Bootstrap v5.3';
-};
-
-const setBsVersion = (version) => {
-  const config = vscode.workspace.getConfiguration('bootstrapIntelliSense');
-  config.update('version', version, true);
-};
-
-const saveCacheClasses = (classes) => {
-  const cachePath = getCachePath();
-  fs.writeFileSync(cachePath, JSON.stringify(classes));
-};
-
-const getCacheClasses = () => {
-  const cachePath = getCachePath();
-  if (fs.existsSync(cachePath)) {
-    return JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+const getBsClasses = async () => {
+  const workspaceFolders = vscode.workspace.workspaceFolders;
+  if (!workspaceFolders || workspaceFolders.length === 0) {
+    return null; // No workspace is open
   }
-  return [];
-};
 
-const clearCache = () => {
-  const cachePathDir = getCacheDir();
-  fs.readdir(cachePathDir, (err, files) => {
-    if (err) {
-      throw err;
-    }
-    for (const file of files) {
-      fs.unlinkSync(cachePathDir + file);
-    }
-  });
-};
+  const bootstrap = await vscode.workspace.findFiles(
+    '**/node_modules/bootstrap/dist/css/bootstrap.css',
+  );
+  const bootstrapPath = bootstrap[0].fsPath;
 
-const getCachePath = () => {
-  const cacheDir = getCacheDir();
-  const version = getBsVersion();
-  return path.join(cacheDir, `bootstrap-classes-${version}.json`);
-};
-
-const getCacheDir = () => {
-  let cachePath;
-  if (process.platform === 'win32') {
-    cachePath = path.join(os.homedir(), 'AppData', 'Local', 'bootstrap-intelliSense', 'cache');
-  } else if (process.platform === 'darwin') {
-    cachePath = path.join(os.homedir(), 'Library', 'Caches', 'bootstrap-intelliSense');
-  } else {
-    cachePath = path.join(os.homedir(), '.cache', 'bootstrap-intelliSense');
-  }
   try {
-    fs.mkdirSync(cachePath, { recursive: true });
-  } catch (err) {
-    if (err.code !== 'EEXIST') {
-      console.error(`Failed to create cache directory: ${err.message}`);
+    if (fs.existsSync(bootstrapPath)) {
+      const stats = fs.statSync(bootstrapPath);
+      const mtime = stats.mtime.getTime();
+
+      // If the file has not changed, return the cached value
+      if (cachedFileMtime === mtime) {
+        return cachedClasses;
+      }
+
+      // File has changed or is being loaded for the first time
+      const css = fs.readFileSync(bootstrapPath, 'utf8');
+      cachedClasses = extractCssClasses(css);
+      cachedFileMtime = mtime;
+
+      return cachedClasses;
+    } else {
+      vscode.window.showInformationMessage(`Bootstrap file not found: ${bootstrapPath}`);
+      return null;
     }
+  } catch (error) {
+    vscode.window.showInformationMessage(`Error reading Bootstrap file: ${error}`);
+    return null;
   }
-  return cachePath;
 };
 
 module.exports = {
   getBsClasses,
-  getBsVersion,
-  setBsVersion,
-  clearCache,
   setStatusBarItem,
 };
