@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.2.1 2024-05-25
+
+- 🛠️ Show a warning if Bootstrap is not included in node_modules.
+
 ## v1.2.0 2024-05-24
 
 - 🔄 Improved retrieval of Bootstrap CSS classes from the project's node_modules.

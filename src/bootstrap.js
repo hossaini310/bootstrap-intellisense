@@ -10,6 +10,11 @@ const setStatusBarItem = async () => {
   const packageJsonPath = await vscode.workspace.findFiles(
     '**/node_modules/bootstrap/package.json',
   );
+
+  if (!packageJsonPath[0]) {
+    vscode.window.showWarningMessage('Bootstrap is not included in node_modules');
+  }
+
   const packageJson = await JSON.parse(
     fs.readFileSync(path.join(packageJsonPath[0].fsPath), 'utf8'),
   );
@@ -45,6 +50,11 @@ const getBsClasses = async () => {
   const bootstrap = await vscode.workspace.findFiles(
     '**/node_modules/bootstrap/dist/css/bootstrap.css',
   );
+
+  if (!bootstrap[0]) {
+    vscode.window.showWarningMessage('Bootstrap is not included in node_modules');
+  }
+
   const bootstrapPath = bootstrap[0].fsPath;
 
   try {
