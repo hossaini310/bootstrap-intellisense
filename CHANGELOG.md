@@ -1,5 +1,12 @@
 # Change Log
 
+## v1.4.0 2024-05-26
+
+- ♻️ Refactor code for improved maintainability and readability.
+- ✨ Enhance feature: Now able to view complete CSS for class names.
+- 🐛 Fix minor bugs.
+- 🛠️ Updated README file
+
 ## v1.3.0 2024-05-26
 
 - Added support for suggesting CSS classes from CDN links as well.
