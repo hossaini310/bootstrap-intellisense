@@ -1,5 +1,10 @@
 # Change Log
 
+## v1.3.0 2024-05-26
+
+- Added support for suggesting CSS classes from CDN links as well.
+- 🐛 Minor bug fixes.
+
 ## v1.2.1 2024-05-25
 
 - 🛠️ Show a warning if Bootstrap is not included in node_modules.

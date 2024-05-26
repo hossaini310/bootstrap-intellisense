@@ -39,7 +39,6 @@ const languageSupport = [
 
 function activate(context) {
   setStatusBarItem();
-  vscode.window.showInformationMessage('Activated Bootstrap IntelliSense');
 
   const classRegex = /class(?:Name)?=["']([ -\w]*)(?!["'])$/;
 
