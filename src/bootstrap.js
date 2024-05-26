@@ -63,7 +63,7 @@ const setStatusBarItem = async () => {
       statusBarItem.show();
     }
   } catch (error) {
-    vscode.window.showWarningMessage(`Error setting status bar item: ${error}`);
+    return null;
   }
 };
 
@@ -157,7 +157,6 @@ const getBsClasses = async () => {
     }
     return null;
   } catch (error) {
-    vscode.window.showWarningMessage(`Error getting Bootstrap classes: ${error}`);
     return null;
   }
 };

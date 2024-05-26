@@ -44,13 +44,14 @@ const provideCompletionItems = (document, position) => {
         new vscode.Range(new vscode.Position(position.line, 0), position),
       );
       const matches = classRegex.exec(lineUntilPos);
-      if (!matches) {
+      if (!matches || !matches[1]) {
         resolve([]);
         return;
       }
 
-      const usedClasses = matches[1].split(' ').filter((cls) => cls.trim() !== '');
-      const availableClasses = await getBsClasses();
+      const usedClasses = (matches[1] || '').split(' ').filter((cls) => cls.trim() !== '');
+      const availableClasses = (await getBsClasses()) || [];
+
       const completionItems = availableClasses
         .filter(({ className }) => !usedClasses.includes(className))
         .map(({ className, classContent }) => {
