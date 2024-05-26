@@ -1,5 +1,4 @@
 const vscode = require('vscode');
-const { Position, Range } = vscode;
 const { getBsClasses, setStatusBarItem } = require('./bootstrap');
 
 const languageSupport = [
@@ -37,49 +36,53 @@ const languageSupport = [
   'asp',
 ];
 
-function activate(context) {
-  setStatusBarItem();
+const provideCompletionItems = (document, position) => {
+  const classRegex = /class\s*=\s*['"]([^'"]*)/;
+  return new Promise(async (resolve, reject) => {
+    try {
+      const lineUntilPos = document.getText(
+        new vscode.Range(new vscode.Position(position.line, 0), position),
+      );
+      const matches = classRegex.exec(lineUntilPos);
+      if (!matches) {
+        resolve([]);
+        return;
+      }
 
-  const classRegex = /class(?:Name)?=["']([ -\w]*)(?!["'])$/;
+      const usedClasses = matches[1].split(' ').filter((cls) => cls.trim() !== '');
+      const availableClasses = await getBsClasses();
+      const completionItems = availableClasses
+        .filter(({ className }) => !usedClasses.includes(className))
+        .map(({ className, classContent }) => {
+          const item = new vscode.CompletionItem(className, vscode.CompletionItemKind.Value);
+          item.detail = 'Bootstrap IntelliSense';
+          item.documentation = new vscode.MarkdownString().appendCodeblock(classContent, 'css');
+          item.insertText = className;
+          return item;
+        });
+
+      resolve(completionItems);
+    } catch (error) {
+      console.error('Error in provideCompletionItems:', error.message, error.stack);
+      reject([]);
+    }
+  });
+};
+
+const activate = (context) => {
+  setStatusBarItem();
 
   const disposable = vscode.languages.registerCompletionItemProvider(
     languageSupport,
     {
-      async provideCompletionItems(document, position) {
-        const lineUntilPos = document.getText(new Range(new Position(position.line, 0), position));
-        const matches = lineUntilPos.match(classRegex);
-        if (!matches) {
-          return null;
-        }
-
-        const classes = await getBsClasses();
-        const completionItems = [];
-
-        matches[1].split(' ').forEach((className) => {
-          const index = classes.indexOf(className);
-          if (index !== -1) {
-            classes.splice(index, 1);
-          }
-        });
-
-        for (const className of classes) {
-          const completionItem = new vscode.CompletionItem(className);
-
-          completionItem.kind = vscode.CompletionItemKind.Value;
-          completionItem.detail = 'Bootstrap IntelliSense';
-
-          completionItems.push(completionItem);
-        }
-        return completionItems;
-      },
+      provideCompletionItems,
     },
     ' ',
     '"',
     "'",
   );
-  context.subscriptions.push(disposable);
-}
 
-module.exports = {
-  activate,
+  context.subscriptions.push(disposable);
 };
+
+module.exports = { activate };
