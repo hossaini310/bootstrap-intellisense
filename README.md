@@ -16,16 +16,24 @@ The extension will be activated automatically when it's installed. If it's not a
 
 ## Features
 
-### CSS Class Autocomplete
+### Smart Autocomplete
 
-Bootstrap Intellisense is a Visual Studio Code extension that offers CSS class autocomplete for Bootstrap. Enter a class name and the extension will suggest matching CSS classes, if not than try `ctrl + space` to trigger the autocomplete.
+Intelligent suggestions for Bootstrap class names.
+Enter a class name and the extension will suggest matching CSS classes, if not than try `ctrl + space` to trigger the autocomplete.
 
-<!-- add img -->
-<img src="/assets/images/img1.png"/>
+<img src="/assets/images/autocomplete.png"/>
 
-#### suported versions:
+### Detailed CSS Insights
 
-<img src="./assets/images/img2.png"/>
+View complete CSS details for Bootstrap class names.
+
+<img src="/assets/images/css-details.png"/>
+
+### Bootstrap Version Detection
+
+Display the Bootstrap version used in the project.
+
+<img src="/assets/images/bootsrap-version.png"/>
 
 ## Known Issues
 
