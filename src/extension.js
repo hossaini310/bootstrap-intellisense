@@ -37,13 +37,14 @@ const languageSupport = [
 ];
 
 const provideCompletionItems = (document, position) => {
-  const classRegex = /class\s*=\s*['"]([^'"]*)/;
+  const classRegex = /class(?:Name)?\s*=\s*['"]([^'"]*)$/;
+
   return new Promise(async (resolve, reject) => {
     try {
-      const lineUntilPos = document.getText(
-        new vscode.Range(new vscode.Position(position.line, 0), position),
-      );
-      const matches = classRegex.exec(lineUntilPos);
+      const lineText = document.lineAt(position.line).text;
+      const textBeforeCursor = lineText.slice(0, position.character);
+
+      const matches = classRegex.exec(textBeforeCursor);
       if (!matches || !matches[1]) {
         resolve([]);
         return;

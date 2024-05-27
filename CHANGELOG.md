@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.4.2 2024-05-27
+
+- 🐛 Fix minor bugs.
+
 ## v1.4.1 2024-05-26
 
 - 🐛 Fix minor bugs.
@@ -13,7 +17,7 @@
 
 ## v1.3.0 2024-05-26
 
-- Added support for suggesting CSS classes from CDN links as well.
+- ✨ Added support for suggesting CSS classes from CDN links as well.
 - 🐛 Minor bug fixes.
 
 ## v1.2.1 2024-05-25
