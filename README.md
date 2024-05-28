@@ -12,7 +12,7 @@ In order for the extension to activate you must have Bootstrap installed in your
 
 ## Activation
 
-The extension will be activated automatically when it's installed. If it's not activated, you can manually activate it using the command `Bootstrap IntelliSense: Enable` with `ctrl + shift + p`.
+The extension will be activated automatically when it's installed.
 
 ## Features
 
