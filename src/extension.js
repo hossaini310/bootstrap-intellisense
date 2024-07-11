@@ -1,5 +1,6 @@
 const vscode = require('vscode');
-const { getBsClasses, setStatusBarItem } = require('./bootstrap');
+const { getBootstrapClasses } = require('./bootstrap');
+const { setStatusBarItem } = require('./statusBar');
 
 const languageSupport = [
   'html',
@@ -51,14 +52,14 @@ const provideCompletionItems = (document, position) => {
       }
 
       const usedClasses = (matches[1] || '').split(' ').filter((cls) => cls.trim() !== '');
-      const availableClasses = (await getBsClasses()) || [];
+      const availableClasses = (await getBootstrapClasses()) || [];
 
       const completionItems = availableClasses
         .filter(({ className }) => !usedClasses.includes(className))
-        .map(({ className, classContent }) => {
+        .map(({ className, classProperties }) => {
           const item = new vscode.CompletionItem(className, vscode.CompletionItemKind.Value);
           item.detail = 'Bootstrap IntelliSense';
-          item.documentation = new vscode.MarkdownString().appendCodeblock(classContent, 'css');
+          item.documentation = new vscode.MarkdownString().appendCodeblock(classProperties, 'css');
           item.insertText = className;
           return item;
         });
