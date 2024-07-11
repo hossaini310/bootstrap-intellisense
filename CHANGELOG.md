@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.5.3 2024-07-12
+
+- 🐛 Fix minor bugs.
+
 ## v1.5.2 2024-07-11
 
 - 🆕 Updated sponsor link

@@ -29,10 +29,8 @@ const getBootstrapVersionFromIndexHtml = async () => {
 const getBootstrapVersionFromLocalCssFile = async () => {
   try {
     const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (!workspaceFolders || workspaceFolders.length === 0) {
-      console.log('Kein geöffneter Arbeitsbereich gefunden.');
-      return;
-    }
+    if (!workspaceFolders || workspaceFolders.length === 0) return;
+
     const htmlFiles = await vscode.workspace.findFiles('**/*.html');
     const bootstrapLinkRegex = /<link[^>]+href=["']((?!.*jsdelivr).*\bbootstrap\b[^"']*)["']/g;
     const bootstrapVersionRegex = /Bootstrap\s+v(\d+\.\d+\.\d+)/g;
@@ -62,7 +60,6 @@ const getBootstrapVersionFromLocalCssFile = async () => {
 
     return null;
   } catch (error) {
-    vscode.window.showWarningMessage(`Error finding Bootstrap version: ${error}`);
     return null;
   }
 };
