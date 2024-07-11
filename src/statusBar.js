@@ -22,7 +22,6 @@ const getBootstrapVersionFromIndexHtml = async () => {
 
     return null;
   } catch (error) {
-    vscode.window.showWarningMessage(`Error finding Bootstrap version: ${error}`);
     return null;
   }
 };

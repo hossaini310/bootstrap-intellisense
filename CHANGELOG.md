@@ -1,5 +1,13 @@
 # Change Log
 
+## v1.5.2 2024-07-11
+
+- 🆕 Updated sponsor link
+
+## v1.5.1 2024-07-11
+
+- 🐛 Fix minor bugs.
+
 ## v1.5.0 2024-07-11
 
 - ✨ Added support for suggesting CSS classes from Local Bootstrap css Files as well.
