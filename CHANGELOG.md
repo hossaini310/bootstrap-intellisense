@@ -1,5 +1,11 @@
 # Change Log
 
+## v1.5.0 2024-07-11
+
+- ✨ Added support for suggesting CSS classes from Local Bootstrap css Files as well.
+- ♻️ Refactor code for improved maintainability and readability.
+- 🐛 Fix minor bugs.
+
 ## v1.4.2 2024-05-27
 
 - 🐛 Fix minor bugs.
