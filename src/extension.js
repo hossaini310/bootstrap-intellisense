@@ -1,5 +1,5 @@
 const vscode = require('vscode');
-const { getBootstrapClasses } = require('./bootstrap');
+const { getClasses } = require('./bootstrap');
 const { setStatusBarItem } = require('./statusBar');
 
 const languageSupport = [
@@ -52,7 +52,7 @@ const provideCompletionItems = (document, position) => {
       }
 
       const usedClasses = (matches[1] || '').split(' ').filter((cls) => cls.trim() !== '');
-      const availableClasses = (await getBootstrapClasses()) || [];
+      const availableClasses = (await getClasses()) || [];
 
       const completionItems = availableClasses
         .filter(({ className }) => !usedClasses.includes(className))

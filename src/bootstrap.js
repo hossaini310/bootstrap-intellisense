@@ -31,19 +31,15 @@ const extractCssClasses = (css) => {
 };
 
 const getBootstrapCdnLink = async () => {
-  const cdnRegex = /<link[^>]+href=["']((?!cdn)[^"']*bootstrap[^"']*\.css)["']/;
-
   try {
     const htmlFiles = await vscode.workspace.findFiles('**/*.html');
+    const cdnRegex = /<link[^>]+href=["']((?!cdn)[^"']*bootstrap[^"']*\.css)["']/;
 
     for (const file of htmlFiles) {
       const content = await fs.promises.readFile(file.fsPath, 'utf8');
       const match = content.match(cdnRegex);
 
-      if (match) {
-        const cdnLink = match[1];
-        return cdnLink;
-      }
+      if (match) return match[1];
     }
 
     return null;
@@ -107,13 +103,8 @@ const getCssFromLocalFiles = async () => {
   }
 };
 
-const getBootstrapClasses = async () => {
+const getClasses = async () => {
   try {
-    const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (!workspaceFolders || workspaceFolders.length === 0) {
-      return null; // No workspace is open
-    }
-
     let css = await getCssFromLocalFiles();
 
     if (!css) {
@@ -123,9 +114,7 @@ const getBootstrapClasses = async () => {
       }
     }
 
-    if (css) {
-      return extractCssClasses(css);
-    }
+    if (css) return extractCssClasses(css);
 
     return null;
   } catch (error) {
@@ -135,5 +124,5 @@ const getBootstrapClasses = async () => {
 };
 
 module.exports = {
-  getBootstrapClasses,
+  getClasses,
 };
