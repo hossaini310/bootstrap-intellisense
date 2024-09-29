@@ -6,6 +6,7 @@ const extractCssClasses = (css) => {
   try {
     const classRegex = /\.([a-zA-Z0-9\-_]+)([^{]*?)\s*{([^}]*)}/gs;
     const classes = [];
+    const uniqueClasses = new Set();
     let match;
 
     while ((match = classRegex.exec(css))) {
@@ -17,10 +18,13 @@ const extractCssClasses = (css) => {
         .replace(/;\s*/g, ';\n  ')
         .replace(/\s*}\s*$/, '\n}');
 
-      classes.push({
-        className: className,
-        classProperties: classProperties,
-      });
+      if (!uniqueClasses.has(className)) {
+        uniqueClasses.add(className);
+        classes.push({
+          className: className,
+          classProperties: classProperties,
+        });
+      }
     }
 
     return classes;

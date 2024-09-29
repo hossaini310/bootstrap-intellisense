@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.5.4 2024-09-29
+
+- 🐛 Fix Duplicate CSS classes.
+
 ## v1.5.3 2024-07-12
 
 - 🐛 Fix minor bugs.
