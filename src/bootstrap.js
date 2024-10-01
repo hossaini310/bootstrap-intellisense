@@ -56,7 +56,7 @@ const getBootstrapCdnLink = async () => {
 const getCssFromCdn = async (url) => {
   try {
     let bootstrapVersion = null;
-    const versionRegex = /@(\d+\.\d+\.\d+)/;
+    const versionRegex = /(?:bootstrap[\/@]?)(\d+\.\d+\.\d+)/;
     const matches = url.match(versionRegex);
     if (matches && matches[1]) {
       bootstrapVersion = matches[1];
