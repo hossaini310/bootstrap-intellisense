@@ -83,8 +83,9 @@ const getCssFromLocalFiles = async () => {
 
     for (const match of bootstrapLinkMatches) {
       const bootstrapFilePath = match[1];
+      console.log(bootstrapFilePath);
 
-      const normalizedPath = bootstrapFilePath.replace(/^\.\/|^\//, '');
+      const normalizedPath = bootstrapFilePath.replace(/^\.\/|^\/|^\..\//, '');
 
       if (normalizedPath !== bootstrapFilePath) {
         searchPatterns.push(normalizedPath);

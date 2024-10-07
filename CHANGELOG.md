@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.5.7 2024-10-07
+
+- 🐛 Fix minor bugs.
+
 ## v1.5.6 2024-10-03
 
 - 🐛 Fix minor bugs.
