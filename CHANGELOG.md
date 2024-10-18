@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.5.8 2024-10-18
+
+- Add jinja-html support
+
 ## v1.5.7 2024-10-07
 
 - 🐛 Fix minor bugs.
