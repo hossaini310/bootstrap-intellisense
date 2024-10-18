@@ -35,6 +35,7 @@ const languageSupport = [
   'jinja',
   'j2',
   'asp',
+  'jinja-html',
 ];
 
 const provideCompletionItems = (document, position) => {
